@@ -85,7 +85,7 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/blog-list">Blog</Link>
+                    <Link to="/blog">Blog</Link>
                   </li>
                   <li>
                     <Link to="/artistcorner">Artist corner</Link>
@@ -133,7 +133,7 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/blog-list">Blog</Link>
+                    <Link to="/blog">Blog</Link>
                   </li>
                   <li>
                     <Link to="/artistcorner">Artist corner</Link>

@@ -2307,7 +2307,7 @@ input[type=checkbox] + label:before {
     letter-spacing: 0.02em;
     text-transform: capitalize;
     color: #424242;
-    margin-bottom: 34px;
+    margin-bottom: 2px;
 }
 
 .blog-list-section .image-section {

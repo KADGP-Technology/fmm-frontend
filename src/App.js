@@ -32,12 +32,13 @@ function App() {
     <>
 
       <Routes>
-        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}>
+        <Route>
+        {/* <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}> */}
 
 
           <Route path="/explore-makeupartist" element={<Exploreartist />}></Route>
-          <Route path="/blog-list" element={<BlogList />}></Route>
-          <Route path="/blog-details" element={<BlogDetails />}></Route>
+          <Route path="/blog" element={<BlogList />}></Route>
+          <Route path="/blog-details/:id" element={<BlogDetails />}></Route>
 
 
 

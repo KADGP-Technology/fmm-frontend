@@ -28,8 +28,8 @@ const BlogList = () => {
         </div>
       </div>
       <Blogs />
-      <ArtistInDemand />
-      <NewsLatter />
+      {/* <ArtistInDemand />
+      <NewsLatter /> */}
     </>
   );
 };

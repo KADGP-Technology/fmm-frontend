@@ -9,7 +9,7 @@ function Blogroutes() {
   return (
     <>
       <Routes>
-        <Route path="/blog-list" element={<BlogList />}></Route>
+        <Route path="/blog" element={<BlogList />}></Route>
         <Route path="/blog-details" element={<BlogDetails />}></Route>
         
       </Routes>
