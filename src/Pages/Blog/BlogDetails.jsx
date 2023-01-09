@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import config from '../../config/API/api-prod'
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -8,7 +9,7 @@ const BlogDetails = () => {
   const [html, setHTML] = useState({__html: ""});
   const [keepreading, setkeepreading] = useState([]);
   const getBlog = () => {
-    axios.get('http://10.10.30.180:8080/blog/'+id)
+    axios.get(config.hostUrl+'/blog/'+id)
     .then(function (response) {
       setBlogDetails(response.data)
       setHTML({__html:response.data.content})

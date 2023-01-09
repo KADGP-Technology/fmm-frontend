@@ -1,4 +1,5 @@
-export const protocol = "https";
-export const host = "Api.development.elpixie.com";
-export const port = "";
+export const protocol = "http";
+export const host = "localhost";
+// export const host = "10.10.30.180";
+export const port = "8080";
 export const trailUrl = "";

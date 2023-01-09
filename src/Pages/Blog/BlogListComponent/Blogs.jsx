@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import config from '../../../config/API/api-prod.js'
 
 const Blogs = () => {
-  
+  // console.log(config.hostUrl)
+
 const [blogcards, setblogcards] = useState([])
 
 const getdata = () => {
-  axios.get('http://10.10.30.180:8080/blog/get')
+  axios.get(config.hostUrl+'/blog/get')
   .then(function (response) {
     setblogcards(response.data)
   })
