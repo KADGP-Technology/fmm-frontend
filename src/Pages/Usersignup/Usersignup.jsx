@@ -10,6 +10,9 @@ import {
   usersignup,
   usertokenset,
 } from "../../Redux/Auth/UserAuth/actionReducer";
+import axios from "axios";
+import config from '../../config/API/api-prod'
+
 import userSchema from "../../Schema/Yupschema/userSchema";
 
 function Usersignup() {
@@ -26,11 +29,9 @@ function Usersignup() {
       phoneNumberref.current.value &&
       phoneNumberref.current.value.length == 10
     ) {
-      ApiPostNoAuth("user/verify/mobile", {
+      axios.post(config.hostUrl+'/user/verify/mobile', { 
         phoneNumber: phoneNumberref.current.value,
-        userType: 0,
-      })
-        .then((res) => {
+        userType: 0,}) .then((res) => {
           console.log(res);
           setOtpsend(true);
           toast.success("OTP Sent Successfully");
@@ -173,6 +174,7 @@ function Usersignup() {
                               type="button"
                               className="login-button"
                               onClick={sendotp}
+                              style = {{cursor:'pointer'}}
                             >
                               Send OTP
                             </button>
@@ -181,6 +183,7 @@ function Usersignup() {
                               type="button"
                               className="login-button"
                               onClick={handleOTPsubmit}
+                              style = {{cursor:'pointer'}}
                             >
                               Sign Up
                             </button>

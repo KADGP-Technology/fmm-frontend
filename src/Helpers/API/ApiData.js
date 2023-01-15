@@ -3,8 +3,9 @@ import Auth from "../Auth";
 import CryptoJS from "crypto-js";
 import * as authUtil from "../../utils/auth.util";
 import axios from "axios";
+import config from '../../config/API/api-prod'
 
-export const BaseURL = 'https://fmm-front.herokuapp.com' + "/";
+export const BaseURL = config.hostUrl;
 export const Bucket =
   "https://unicorn-ui-development.s3.ap-south-1.amazonaws.com/";
 // export const Bucket = "https://unicornui-production.s3.amazonaws.com/";

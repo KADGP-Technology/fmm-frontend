@@ -32,8 +32,7 @@ function App() {
     <>
 
       <Routes>
-        <Route>
-        {/* <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}> */}
+        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}>
 
 
           <Route path="/explore-makeupartist" element={<Exploreartist />}></Route>
@@ -42,14 +41,15 @@ function App() {
 
 
 
-          {/* <Route path="/" element={<Home />}></Route> */}
+
+          <Route path="/" element={<Home />}></Route>
 
           <Route path="/artistsignup" element={<Artistlogin />}></Route>
           <Route path="/artistlogin" element={<Artistloginmain />}></Route>
 
           <Route path="/userlogin" element={<Userlogin />}></Route>
 
-          {/* {!localStorage.getItem('persist:user_token') && <Route path="/usersignup" element={<Usersignup />}></Route>}          */}
+         <Route path="/usersignup" element={<Usersignup />}></Route>        
 
           <Route path="/artistcorner" element={<Artisthome />}></Route>
 

@@ -6,6 +6,7 @@ import Homeswiper from "./Homecomponent/Homeswiper";
 import Newslatter from "./Homecomponent/Newslatter";
 
 function Home() {
+  
   return (
     <>
       <Homeswiper />
