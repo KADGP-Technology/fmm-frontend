@@ -32,6 +32,8 @@ function App() {
     <>
 
       <Routes>
+          <Route path="/" element={<Home />}></Route>
+
         <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}>
 
 
@@ -42,7 +44,7 @@ function App() {
 
 
 
-          <Route path="/" element={<Home />}></Route>
+          {/* <Route path="/" element={<Home />}></Route> */}
 
           <Route path="/artistsignup" element={<Artistlogin />}></Route>
           <Route path="/artistlogin" element={<Artistloginmain />}></Route>

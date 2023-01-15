@@ -9,11 +9,14 @@ function Home() {
   
   return (
     <>
-      <Homeswiper />
+    <div>
+    <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gNQDMJ9zMZlwzHG87sWF90MsRtY-3lSFMUmHmZy-JTc-_81AMhntlUDjMuziaf4E1UzoRAIEHIsDOUVRaF6_A0c3Clg7w=w1920-h937" alt="" style={{width:'100%'}}/>
+    </div>
+      {/* <Homeswiper />
       <HomeArtist />
       <EditorsFavourite />
       <Newslatter />
-      <Blogsection />
+      <Blogsection /> */}
     </>
   );
 }
