@@ -166,6 +166,7 @@ function Userlogin() {
                             type="button"
                             className="login-button"
                             onClick={handlesendotp}
+                            style = {{cursor:'pointer'}}
                           >
                             Send OTP
                           </button>

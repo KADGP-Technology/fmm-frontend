@@ -10,6 +10,9 @@ import {
   usersignup,
   usertokenset,
 } from "../../Redux/Auth/UserAuth/actionReducer";
+import axios from "axios";
+import config from '../../config/API/api-prod'
+
 import userSchema from "../../Schema/Yupschema/userSchema";
 
 function Usersignup() {
@@ -19,18 +22,19 @@ function Usersignup() {
   const otpref = useRef(null);
   const confirmpassword = useRef(null);
   const phoneNumberref = useRef(null);
+  let phonenumber = ''
+
   const navigate = useNavigate();
   const sendotp = () => {
-    console.log(phoneNumberref.current.value.length);
+    console.log(phoneNumberref.current.value);
+    phonenumber = phoneNumberref.current.value
     if (
       phoneNumberref.current.value &&
       phoneNumberref.current.value.length == 10
     ) {
-      ApiPostNoAuth("user/verify/mobile", {
+      axios.post(config.hostUrl+'/user/verify/mobile', { 
         phoneNumber: phoneNumberref.current.value,
-        userType: 0,
-      })
-        .then((res) => {
+        userType: 0,}) .then((res) => {
           console.log(res);
           setOtpsend(true);
           toast.success("OTP Sent Successfully");
@@ -42,7 +46,7 @@ function Usersignup() {
   };
   const handleOTPsubmit = () => {
     if (otpref.current.value && otpref.current.value.length == 6) {
-      ApiPostNoAuth("user/verifyOtp", {
+      axios.post(config.hostUrl + "/user/verifyOtp", {
         otp: otpref.current.value,
         phoneNumber: phoneNumberref.current.value,
         userType: 0,
@@ -58,15 +62,25 @@ function Usersignup() {
       toast.error("Enter 6 digit  OTP");
     }
   };
+  const validation = (email) => {
+    const result = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+return result.test(String(email).toLowerCase());
+}
 
   const handlesignup = (obj) => {
-    console.log(obj);
-    ApiPostuser("user/signup", {
+    // console.log(obj);
+    
+    if(obj.firstName.length <= 2 || obj.firstName.length >=15) return toast.warning("Enter Your Correct First Name")
+    if(obj.lastName.length <=2 || obj.lastName.length >= 15) return toast.warning("Enter Your Correct Last Name")
+    if(!validation(obj.email)) return toast.warning("Enter Correct Email")
+    if(obj.password !== obj.confirmpassword) return toast.warning("Re-enter Password Not Same as Password")
+    axios.post(config.hostUrl + "/user/signUp", {
       ...obj,
-      phoneNumber: "9879868908",
+      phoneNumber: phonenumber,
       userType: 0,
     })
       .then((res) => {
+        console.log(res)
         res.status == "200"
           ? toast.success("Sign UP Completed")
           : toast.error(res.message);
@@ -75,7 +89,7 @@ function Usersignup() {
             username: obj.firstName,
           })
         );
-        navigate("/");
+        // navigate("/");
       })
       .catch((err) => toast.error(err));
     console.log("first");
@@ -173,6 +187,7 @@ function Usersignup() {
                               type="button"
                               className="login-button"
                               onClick={sendotp}
+                              style = {{cursor:'pointer'}}
                             >
                               Send OTP
                             </button>
@@ -181,6 +196,7 @@ function Usersignup() {
                               type="button"
                               className="login-button"
                               onClick={handleOTPsubmit}
+                              style = {{cursor:'pointer'}}
                             >
                               Sign Up
                             </button>
@@ -232,8 +248,13 @@ function Usersignup() {
         </div>
       ) : (
         <Formik
-          initialValues={usersignupinitialvalues}
-          // validationSchema={userSchema}
+          initialValues={{
+            firstName: '',
+            lastName: '',
+            email: '',
+            password : '',
+            confirmpassword : '',
+          }}
           onSubmit={handlesignup}
         >
           <Form>
@@ -264,6 +285,7 @@ function Usersignup() {
                               type="text"
                               id="firstName"
                               name="firstName"
+                              
                             />
                           </div>
                           <div className="input-field contact-number">
@@ -283,16 +305,14 @@ function Usersignup() {
                             />
                           </div>
                           <div className="input-field contact-number">
-                            <label for="confirmpassword">
-                              Re-enter Password
-                            </label>
-                            <input
+                            <label for="confirmpassword">Re-enter Password</label>
+                            <Field
                               type="password"
                               id="confirmpassword"
                               name="confirmpassword"
-                              ref={confirmpassword}
                             />
                           </div>
+                         
 
                           <div className="button-section">
                             <button type="submit" className="login-button">
