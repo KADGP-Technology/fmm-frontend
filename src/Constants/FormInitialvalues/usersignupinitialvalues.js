@@ -2,5 +2,6 @@ export default {
     firstName: '',
     lastName: "",
     email: '',
-    password: ''
+    password: '',
+    confirmPassword : ''
 }
