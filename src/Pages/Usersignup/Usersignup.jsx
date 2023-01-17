@@ -12,32 +12,39 @@ import {
 } from "../../Redux/Auth/UserAuth/actionReducer";
 import axios from "axios";
 import config from '../../config/API/api-prod'
-
-import userSchema from "../../Schema/Yupschema/userSchema";
+import LoadingSpinner from "../../Helpers/preloader";
 
 function Usersignup() {
   const [otpsend, setOtpsend] = useState(false);
   const [signup, setSignup] = useState(false);
   const dispatch = useDispatch();
   const otpref = useRef(null);
-  const confirmpassword = useRef(null);
+const [signUpPhoneNumber , setSignupPhoneNumber] = useState('');
+const [isloading, setisloading] = useState(false);
+
   const phoneNumberref = useRef(null);
   let phonenumber = ''
 
   const navigate = useNavigate();
   const sendotp = () => {
-    console.log(phoneNumberref.current.value);
+    // console.log(phoneNumberref.current.value);
     phonenumber = phoneNumberref.current.value
     if (
       phoneNumberref.current.value &&
       phoneNumberref.current.value.length == 10
     ) {
+      setisloading(true)
       axios.post(config.hostUrl+'/user/verify/mobile', { 
         phoneNumber: phoneNumberref.current.value,
         userType: 0,}) .then((res) => {
-          console.log(res);
+          if(res.data.status == 302){
+            setisloading(false)
+                 return toast.warning("User is already exists, Please Login")
+          }else{
           setOtpsend(true);
+          setisloading(false)
           toast.success("OTP Sent Successfully");
+          }
         })
         .catch((err) => toast.error(err));
     } else {
@@ -46,6 +53,7 @@ function Usersignup() {
   };
   const handleOTPsubmit = () => {
     if (otpref.current.value && otpref.current.value.length == 6) {
+      setisloading(true)
       axios.post(config.hostUrl + "/user/verifyOtp", {
         otp: otpref.current.value,
         phoneNumber: phoneNumberref.current.value,
@@ -55,6 +63,7 @@ function Usersignup() {
           console.log(res);
           res.status == "200" && toast.success(res.message);
           dispatch(usertokenset({ token: res.data.data.token }));
+          setisloading(false)
           setSignup(!signup);
         })
         .catch((err) => toast.error(err.message));
@@ -69,33 +78,52 @@ return result.test(String(email).toLowerCase());
 
   const handlesignup = (obj) => {
     // console.log(obj);
-    
+    console.log(signUpPhoneNumber)
     if(obj.firstName.length <= 2 || obj.firstName.length >=15) return toast.warning("Enter Your Correct First Name")
     if(obj.lastName.length <=2 || obj.lastName.length >= 15) return toast.warning("Enter Your Correct Last Name")
     if(!validation(obj.email)) return toast.warning("Enter Correct Email")
     if(obj.password !== obj.confirmpassword) return toast.warning("Re-enter Password Not Same as Password")
+    setisloading(true)
+
     axios.post(config.hostUrl + "/user/signUp", {
       ...obj,
-      phoneNumber: phonenumber,
+      phoneNumber: signUpPhoneNumber,
       userType: 0,
     })
       .then((res) => {
-        console.log(res)
-        res.status == "200"
-          ? toast.success("Sign UP Completed")
-          : toast.error(res.message);
-        dispatch(
-          usersignup({
-            username: obj.firstName,
-          })
-        );
-        // navigate("/");
+        // console.log(res)
+        if(res.status == "200"){
+          toast.success("Sign UP Completed") 
+          setisloading(false)
+          dispatch(
+            usersignup({
+              username: obj.firstName,
+            })
+          );
+          
+  
+          navigate("/");
+        }else{
+          toast.error(res.message);
+        }
+
+        
       })
       .catch((err) => toast.error(err));
     console.log("first");
   };
+
+  const handleLoading = () => {
+    if(isloading)
+    return <LoadingSpinner/>
+  }
+
+
   return (
     <>
+
+     {handleLoading()}
+  
       {!signup ? (
         <div className="login-page">
           <div className="main-user-login-section">
@@ -122,8 +150,10 @@ return result.test(String(email).toLowerCase());
                             type="tel"
                             id="phone"
                             name="phone"
-                            placeholder="+91 00 000 000"
+                            placeholder="00 000 000"
                             ref={phoneNumberref}
+                            onChange={(event) => {setSignupPhoneNumber(event.target.value)}}
+                            value = {signUpPhoneNumber}
                           />
                           <svg
                             className="phone-svg"
@@ -170,6 +200,7 @@ return result.test(String(email).toLowerCase());
                             </defs>
                           </svg>
                         </div>
+                        
                         {otpsend && (
                           <div className="input-field contact-number">
                             <label for="phone">Enter OTP</label>
@@ -315,7 +346,7 @@ return result.test(String(email).toLowerCase());
                          
 
                           <div className="button-section">
-                            <button type="submit" className="login-button">
+                            <button type="submit" className="login-button" style={{cursor:'pointer'}}>
                               Continue
                             </button>
                           </div>
@@ -334,6 +365,7 @@ return result.test(String(email).toLowerCase());
         transition={Zoom}
         hideProgressBar={true}
       />
+    
     </>
   );
 }
