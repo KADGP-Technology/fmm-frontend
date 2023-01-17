@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { ApiPostNoAuth } from "../../Helpers/API/ApiData";
@@ -6,14 +6,24 @@ import { artisttokenset } from "../../Redux/Auth/ArtistAuth/actionCreator";
 import { useDispatch, useSelector } from "react-redux";
 import { usertokenset } from "../../Redux/Auth/UserAuth/actionReducer";
 import { toast, ToastContainer, Zoom } from "react-toastify";
+import axios from "axios";
+import config from '../../config/API/api-prod'
+import LoadingSpinner from "../../Helpers/preloader";
 
 function Userlogin() {
   const otpref = useRef(null);
   const phone = useRef(null);
   const navigate = useNavigate();
   const [isOtpSend, setIsOtpSend] = useState(false);
-
+  const [isloading, setisloading] = useState(false);
+const [request_sent, setrequest_sent] = useState(false);
+const [user_number_verified_or_not, setuser_number_verified_or_not] = useState(false);
+   
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    check_number_verified_or_not()
+  });
 
   const handleGoogleLogin = (user) => {
     localStorage.setItem("socialAccData", JSON.stringify(user));
@@ -40,14 +50,24 @@ function Userlogin() {
   };
   const handlesendotp = () => {
     if (phone.current.value && phone.current.value.length == 10) {
-      ApiPostNoAuth("user/login", {
+      setisloading(true)
+      axios.post(config.hostUrl+"/user/login", {
         phoneNumber: phone.current.value,
         userType: 0,
       })
         .then((res) => {
           console.log(res);
+          if(res.data.status == 404){
+            setisloading(false)
+            setrequest_sent(true)
+            setuser_number_verified_or_not(false)
+            return toast.warn("User is not registred with this number, Please signup first")
+          }else{
+            setisloading(false)
+            setuser_number_verified_or_not(true)
           toast.success("OTP send Successfully");
           setIsOtpSend(true);
+          }
         })
         .catch((err) => {
           toast.error(err.message);
@@ -58,12 +78,20 @@ function Userlogin() {
   };
   const handlesubmitotp = () => {
     if (otpref.current.value && otpref.current.value.length == 6) {
-      ApiPostNoAuth("user/verify/mobile", {
+      setisloading(true)
+      axios.post(config.hostUrl+"/user/verifyOtp", {
         otp: otpref.current.value,
         phoneNumber: phone.current.value,
         userType: 0,
       })
         .then((res) => {
+          if(res.data.status == 302){
+      setisloading(false)
+
+           return toast.warn("Please enter a vaild OTP")
+          }else {
+      setisloading(false)
+
           toast.success("OTP Varified Successfully");
           dispatch(
             usertokenset({
@@ -72,14 +100,31 @@ function Userlogin() {
             })
           );
           navigate("/");
+          }
         })
         .catch((err) => toast.error(err));
     } else {
       toast.error("Enter Valid Number");
     }
   };
+
+
+  const handleLoading = () => {
+    if(isloading)
+    return <LoadingSpinner/>
+  }
+
+  const check_number_verified_or_not = () =>{
+
+    if(request_sent){
+        if(user_number_verified_or_not) return <span style={{ color: "green" }}>Verified</span>
+        if(!user_number_verified_or_not) return  <span style={{ color: "red" }}>Not Verified</span>
+    }
+  }
   return (
     <>
+     {handleLoading()}
+
       <div className="login-page">
         <div className="main-user-login-section">
           <div className="container">
@@ -152,7 +197,11 @@ function Userlogin() {
                             </clipPath>
                           </defs>
                         </svg>
-                        <span style={{ color: "red" }}>Not Verified</span>
+                        
+
+                    {check_number_verified_or_not()}
+                        
+                       
                       </div>
                       {isOtpSend && (
                         <div className="input-field contact-number">
@@ -175,6 +224,7 @@ function Userlogin() {
                             type="button"
                             className="login-button"
                             onClick={handlesubmitotp}
+                            style={{cursor:"pointer"}}
                           >
                             Varify OTP
                           </button>
@@ -255,7 +305,7 @@ function Userlogin() {
         </div>
       </div>
       <ToastContainer
-        autoClose={1500}
+        autoClose={5000}
         transition={Zoom}
         hideProgressBar={true}
       />
