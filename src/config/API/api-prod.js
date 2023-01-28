@@ -1,6 +1,6 @@
 import { host, port, protocol } from "./api-commen";
 
-const hostUrl = `${protocol}://${host}${":" + port}`;
+const hostUrl = `${protocol}://${host}`;
 // const endpoint = `${protocol}://${host}${port ? ":" + port : ""}${trailUrl}`;
 
 const config = {

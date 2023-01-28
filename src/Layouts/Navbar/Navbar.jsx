@@ -80,7 +80,8 @@ function Navbar() {
                 </svg>
                 <ul className="menu-wrapper">
                   <li>
-                    <Link to="/explore-makeupartist">
+                    {/* <Link to="/explore-makeupartist"> */}
+                    <Link to="">
                       Explore Makeup Artists
                     </Link>
                   </li>
@@ -88,7 +89,8 @@ function Navbar() {
                     <Link to="/blog">Blog</Link>
                   </li>
                   <li>
-                    <Link to="/artistcorner">Artist corner</Link>
+                    <Link to="#">Artist corner</Link>
+                    {/* <Link to="/artistcorner">Artist corner</Link> */}
                   </li>
                 </ul>
               </div>
@@ -128,7 +130,8 @@ function Navbar() {
               <div className="menu-section">
                 <ul className="menu-wrapper">
                   <li>
-                    <Link to="/explore-makeupartist">
+                    {/* <Link to="/explore-makeupartist"> */}
+                    <Link to="#">
                       Explore Makeup Artists
                     </Link>
                   </li>
@@ -136,7 +139,7 @@ function Navbar() {
                     <Link to="/blog">Blog</Link>
                   </li>
                   <li>
-                    <Link to="/artistcorner">Artist corner</Link>
+                    <Link to="#">Artist corner</Link>
                   </li>
                 </ul>
               </div>
@@ -151,7 +154,7 @@ function Navbar() {
                     />
                   </>
                 ) : (
-                  <Link to="/userlogin" className="button">
+                  <Link to="#" className="button">
                     login
                   </Link>
                 )}

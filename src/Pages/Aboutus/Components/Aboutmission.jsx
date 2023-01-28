@@ -8,15 +8,11 @@ function Aboutmission() {
           <div className="row">
             <h2>Our Mission</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
+            We help you find the perfect makeup artist for any occasion. Whether you're planning a wedding, attending a special event, or want to look your best for a night out, our platform will help you find the perfect makeup artist for your needs. We are committed to providing you with an easy-to-use search engine that allows you to narrow your search based on location, price, experience, and more.
+Our team of experts has taken the time to review and evaluate each makeup artist to ensure you get the best service possible. Finding the right makeup artist can be daunting, so we strive to make the process as easy and stress-free as possible. With our platform, you can easily find and book a makeup artist that best suits your needs. We hope you find the perfect makeup artist with us!
+
             </p>
-            <ul className="our-mission-section">
+            {/* <ul className="our-mission-section">
               <li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +92,7 @@ function Aboutmission() {
                   </p>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
