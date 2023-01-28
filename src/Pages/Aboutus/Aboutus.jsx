@@ -8,7 +8,7 @@ function Aboutus() {
     <>
       <Aboutbanner />
       <Aboutmission />
-      <Aboutimagemodel />
+      {/* <Aboutimagemodel /> */}
     </>
   );
 }

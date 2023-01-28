@@ -7,12 +7,9 @@ function Aboutbanner() {
         <div className="container">
           <h2 className="banner-title">About Us</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+          Findmymua, launched in January 2023, is an online platform that brings you the power to find a makeup artist to your need in seconds. You can explore through thousands of makeup artists and book a suitable one by applying relevant filters. 
+Alternatively, the platform provides makeup artists with a set of tools to grow their business and expand their reach by creating a unique identity, showcasing their skills, promoting their profile, and constructing a competitive portfolio.
+
           </p>
         </div>
       </div>
