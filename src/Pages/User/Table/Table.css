@@ -1,0 +1,24 @@
+
+table{
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-top: 3rem;
+    border-radius: 30px;
+    background-color: white;
+    /* box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px; */
+    border-collapse: collapse;
+    row-gap: 10px;
+  
+}
+
+th, td{
+    padding: 15px;
+
+}
+
+.table-img{
+    height: 30px;
+    width: 50px;
+    border-radius: 100%;
+}
