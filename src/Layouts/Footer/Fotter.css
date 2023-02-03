@@ -1,0 +1,113 @@
+/* footer.css */
+.footer-section {
+    color: #ffffff;
+    padding: 76px 0px;
+    background-image: url(../images/footer-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-color: #212121;
+}
+.footer-section ul {
+    list-style: none;
+    margin: 0px;
+    display: flex;
+}
+
+.footer-section ul.footer-menu li {
+    margin-right: 48px;
+}
+
+.footer-section ul.footer-menu li a {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.footer-section .footer-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer-section .footer-social-icon .social-title {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-right: 28px;
+}
+
+.footer-section .footer-social-icon li {
+    margin-left: 28px;
+}
+
+.footer-section .row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-section .copyrights {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    padding-bottom: 34px;
+    margin-bottom: 34px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+@media only screen and (max-width: 991px) { 
+    .footer-section ul.footer-menu li {
+        margin-right: 20px;
+    }
+    .footer-section .footer-social-icon .social-title {
+        margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 800px) { 
+    .footer-section .row {
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-section .footer-social-icon {
+        margin-top: 20px;
+    }
+    .footer-section {
+        padding: 40px 0px;
+    }
+    .footer-section ul.footer-menu li {
+        margin: 0px 10px;
+    }
+    .footer-section .copyrights {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) { 
+    .footer-section ul.footer-menu li {
+        margin: 0px 6px;
+    }
+    .footer-section ul {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-section ul.footer-menu li a {
+        margin-bottom: 10px;
+    }
+
+    .footer-section .footer-social-icon li {
+        margin-left: 20px;
+    }
+}
+
+/* End footer.css */
