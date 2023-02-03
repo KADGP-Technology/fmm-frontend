@@ -1,10 +1,14 @@
 import React from "react";
 import './Fotter.css'
-
+import {Helmet} from "react-helmet";
 
 function Footer() {
   return (
     <>
+    <Helmet>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </Helmet>
    <section class="newsletter">
         <div class="news-content">
             <h6 style={{fontSize:'15px'}} >Beauty tips and tricks delievered straight to your inbox</h6>
@@ -23,7 +27,7 @@ function Footer() {
     <footer class="Footer">
         <div class="content-div">
             <div class="footer-content">
-            <img src="./footer-img.jpeg" alt="" style={{width:'180px',height:'50px'}} />  
+            <img src={"./footer-img.jpeg"} alt="" style={{width:'180px',height:'50px'}} />  
             </div>
             <div>
                 <ul class="content-list">

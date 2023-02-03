@@ -2,7 +2,7 @@
 .footer-section {
     color: #ffffff;
     padding: 76px 0px;
-    background-image: url(../images/footer-bg.png);
+    background-image: url(./footer-img.jpeg);
     background-size: cover;
     background-position: center;
     background-color: #212121;
@@ -111,3 +111,90 @@
 }
 
 /* End footer.css */
+
+.li {
+    text-decoration: none;
+    color: white;
+}
+
+.li:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.newsletter {
+    background-color: #151515;
+    color: white;
+    padding: 28px;
+
+}
+
+.input-group {
+    height: 3.5rem;
+    width: 200px;
+}
+
+.inbox {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+footer {
+    background-color: #010101;
+    color: white;
+    padding: 20px;
+
+}
+
+li {
+    list-style: none;
+}
+
+.content-div {
+    width: 95%;
+    margin: auto;
+}
+
+.footer-content {
+    padding: 7px;
+}
+
+.content-list {
+    padding-bottom: 30px;
+    margin-left: -40px;
+    padding-top: 20px
+}
+
+.content-list-item {
+    display: inline;
+    list-style: none;
+    padding: 20px;
+    font-size: 13px;
+}
+.copy-link{
+    font-size: 10px;
+}
+.border {
+    width: 100%;
+    border: 1px gray solid;
+    margin: auto;
+}
+
+.social-link {
+    display: inline;
+    padding: 15px;
+
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+.list {
+    display: flex;
+    padding-left: 15px;
+}
