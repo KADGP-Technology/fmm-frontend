@@ -45,7 +45,7 @@ function Footer() {
             </div>           
             <div className="border"></div>
             <div className="copyright">
-                <h5>© Copyright @2023 Viprom Technologies LLP Technologies All rights reserved</h5>
+                <h5>Copyright © 2023 Viprom Technologies LLP Technologies All rights reserved</h5>
                 <ul className="list">
                     <li>Disclamer</li>
                     <li> Refund and Cancellation</li>
