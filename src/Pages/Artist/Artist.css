@@ -1,0 +1,566 @@
+body {
+    background-color: #202020;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* artist-photo css started */
+
+.all-content {
+    margin-top: 10%;
+
+}
+
+.photo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 25px;
+}
+.photo img{
+    height: 132px;
+    width: 220px;
+}
+.name {
+    padding: 25px;
+}
+
+h6 {
+    color: gray;
+}
+
+.location {
+    margin-top: 1rem;
+}
+
+.sub {
+    font-size: 15px;
+}
+
+.right-side-head {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.rating {
+    width: 50px;
+    height: -moz-fit-content;
+    height: 17px;
+    align-items: center;
+    font-size: 12px;
+    background: green;
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    display: flex;
+    align-items: center;
+}
+
+.like-share {
+    display: flex;
+    flex-direction: row;
+    margin-top: -1.5rem;
+    width: 70%;
+    margin: auto;
+    justify-content: space-evenly;
+
+}
+
+.margin {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+
+
+.right-side-content
+{
+    text-align: center;
+}
+
+
+.right-side-btn button {
+    width: 145px;
+    padding: 4px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+/* artist-photo css ended*/
+
+
+/* link-div css :start */
+.links-div {
+    margin-top: 3rem;
+}
+
+.links {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link-content {
+    padding: 30px;
+}
+
+/* link-div css :ended */
+
+
+
+
+/* service section css started */
+.service-head {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-div {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.services-section {
+    margin-top: 1rem;
+}
+
+.btn-content {
+    background: none;
+    border: 1px solid white;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 90%;
+    margin-bottom: 1rem;
+}
+
+.service-image {
+    margin-top: 2rem;
+}
+
+.column {
+    width: 70%;
+    margin: auto;
+}
+
+img {
+    padding-left: 8px;
+}
+
+/* service section css ended */
+
+
+
+/* artist review css started */
+.artist-reviews {
+    width: 100%;
+    color: black;
+    position: unset;
+    background: #F6F7F7;
+    margin-top: 7rem;
+    padding-bottom: 40px;
+}
+
+.artist-reviews-head {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px
+}
+
+.number-btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.review-btn {
+    background: none;
+    color: black;
+    font-size: 15px;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+}
+
+.card-img-container {
+    width: 25%;
+    padding: 20px;
+    display: flex;
+}
+
+.card-img {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.3);
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRof27qixhRvW-2njRy1QQbINbobkBm2KAKyg&usqp=CAU');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.card-img img {
+
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+}
+
+.card-content-head {
+    display: flex;
+}
+
+.date-time-muted {
+    margin-top: 0.6rem;
+}
+
+.card-sub-photo {
+    margin-top: 0.9rem;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #FF385C;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #FF385C;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #FF385C;
+}
+
+/* artist review css ended */
+
+
+
+
+
+
+/* similar artist css started */
+.similar-artist {
+    background-color: white;
+    color: black;
+
+}
+
+.similar-artist-head {
+    padding: 30px;
+    text-align: center;
+}
+
+.name-location {
+    margin-top: 10px;
+}
+
+.similar-artist-content {
+    width: 100%;
+    padding-bottom: 60px;
+
+}
+
+.similar-card-container {
+    width: 75%;
+    margin: auto;
+    display: flex;
+}
+
+.card-similar {
+
+    background-color: #FFEBEE;
+    margin-left: 20px;
+    border-radius: 20px;
+    width: 360px;
+}
+
+.similar-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.similar-ph {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 150px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.btn-red {
+    font-size: 10px;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 10px;
+    background: red;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.btn-pirple {
+    font-size: 10px;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 10px;
+    background: palevioletred;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.bottom-btn {
+    width: 100%;
+    height: 30px;
+    background-color: #FF385C;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.bottom-btn a {
+    color: white;
+    padding: 3px;
+}
+
+
+
+
+
+
+
+
+/* media queries */
+
+@media (min-width:665px) and (max-width: 770px) {
+    .right-side-btn button {
+        width: 112px;
+        padding: 4px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+
+    .right-side-head {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .links {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .link-content {
+        padding: 23px;
+        font-size: 15px;
+    }
+    .column {
+        width: 80%;
+        margin: auto;
+    }
+    .similar-card-container {
+        width: 85%;
+        margin: auto;
+        display: flex;
+    }
+    .card-similar {
+        background-color: #FFEBEE;
+        margin-left: 9px;
+        border-radius: 20px;
+        width: 360px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 665px) {
+    .all-content {
+        margin-top: 18%;
+    }
+    .right-side-btn button {
+        width: 112px;
+        padding: 4px;
+        border-radius: 10px;
+        margin-top: 15px;
+        font-size: 12px;}
+    .photo {
+        display: flex;
+        width: 100%;
+        padding: 25px;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .like-share {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1rem;
+        width: 100%;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    .links {
+        width: 70%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .link-content {
+        padding: 14px;
+        font-size: 13px;
+    }
+    .column {
+        width: 90%;
+        margin-left: auto;
+    }
+    .similar-card-container {
+        width: 95%;
+        margin: auto;
+        display: flex;
+    }
+    .name-location {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .card-similar {
+        background-color: #FFEBEE;
+        margin-left: 5px;
+        border-radius: 20px;
+        width: 360px;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 430px){
+    .all-content {
+        margin-top: 23%;
+    }
+    .card {
+        width: 100%;
+        display: flex;
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        width: 100%;
+        margin-left: 1.5rem;
+    }
+    .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .card-img-container {
+        width: 50%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+    }
+    .card-content{
+        margin-top: 1rem;
+        padding: 10px;
+    }
+    .similar-card-container {
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .card-similar {
+        background-color: #FFEBEE;
+        margin-left: 5px;
+        border-radius: 20px;
+        margin-top: 2rem;
+        width: 360px;
+    }
+
+}
+@media (min-width:100px) and (max-width: 370px){
+    .card-content-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        width: 100%;
+        margin-left: 1.5rem;
+    }
+    .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .card-similar {
+        background-color: #FFEBEE;
+        margin-left: 5px;
+        border-radius: 20px;
+        margin-top: 2rem;
+        width: 100%;
+    }
+    .card-content-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .all-content {
+        margin-top: 30%;
+    }
+    .btn-div {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+}

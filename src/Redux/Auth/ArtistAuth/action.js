@@ -1,0 +1,2 @@
+export const ARTIST_LOGIN = "ARTIST_LOGIN";
+export const ARTIST_TOKEN = "ARTIST_TOKEN";
