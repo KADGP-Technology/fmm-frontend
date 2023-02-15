@@ -16,14 +16,27 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
   const loginArtist = () => {
-    ApiPost("artist/update/profile", {
+    // ApiPost("artist/update/profile", {
+    //   ...formikprops.values,
+    //   profileStatus: 4,
+    // }).then((res) => {
+    //   console.log(res);
+    //   dispatch(artistdata(res?.data?.data));
+    //   navigate("/");
+    // });
+    ApiPost("user/signUp", {
       ...formikprops.values,
-      profileStatus: 4,
-    }).then((res) => {
-      console.log(res);
-      dispatch(artistdata(res?.data?.data));
-      navigate("/");
-    });
+      profileStatus: 1,
+      userType:1
+    })
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+        toast.success(res.data.message);
+
+      })
+      .catch((err) => console.log(err));
+    nextStage()
   };
   const previewImage = (evt) => {
     const file = evt.target.files[0];

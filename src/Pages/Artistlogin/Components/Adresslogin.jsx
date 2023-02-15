@@ -24,15 +24,18 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
         formikprops.errors["state"]
       )
     ) {
-      ApiPost("artist/update/profile", {
-        ...formikprops.values,
-        profileStatus: 1,
-      })
-        .then((res) => {
-          console.log(res);
-          nextStage();
-        })
-        .catch((err) => console.log(err));
+      // ApiPost("artist/update/profile", {
+      // ApiPost("user/signUp", {
+      //   ...formikprops.values,
+      //   profileStatus: 1,
+      //   userType:1
+      // })
+      //   .then((res) => {
+      //     console.log(res);
+      //     nextStage();
+      //   })
+      //   .catch((err) => console.log(err));
+      nextStage()
     }
   };
   useEffect(() => {

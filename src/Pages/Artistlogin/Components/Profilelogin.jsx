@@ -44,14 +44,18 @@ function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
       ) &&
       formikprops.dirty
     ) {
-      ApiPost("artist/update/profile", {
-        ...formikprops.values,
-        profileStatus: 0,
-      })
-        .then((res) => {
-          nextStage();
-        })
-        .catch((err) => toast.error(err.message));
+      // ApiPost("artist/update/profile", {
+      // ApiPost("user/signUp", {
+      //   ...formikprops.values,
+      //   // profileStatus: 0,
+      //   userType:1
+      // })
+      //   .then((res) => {
+      //     nextStage();
+      //   })
+      //   .catch((err) => toast.error(err.message));
+
+      nextStage()
     }
   };
 
@@ -64,6 +68,7 @@ function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
 
   const saveimg = async () => {
     formikprops.setValues((data) => {
+      console.log("DATAAA",data);
       return {
         ...data,
         profilePhoto: avatarPreview,

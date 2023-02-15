@@ -36,7 +36,7 @@ const [isloading, setisloading] = useState(false);
       setisloading(true)
       axios.post(config.hostUrl+'/user/verify/mobile', { 
         phoneNumber: phoneNumberref.current.value,
-        userType: 0,}) .then((res) => {
+        userType: 0,}).then((res) => {
           if(res.data.status == 302){
             setisloading(false)
                  return toast.warning("User is already exists, Please Login")

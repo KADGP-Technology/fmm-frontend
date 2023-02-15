@@ -12,15 +12,18 @@ function Preseginglogin({ formikprops, nextStage, prevStage, changeStage }) {
     formikprops.validateField("price");
     formikprops.validateField("experience");
     if (!(formikprops.errors["price"] || formikprops.errors["experience"])) {
-      ApiPost("artist/update/profile", {
-        ...formikprops.values,
-        profileStatus: 3,
-      })
-        .then((res) => {
-          console.log(res);
-          changeStage(4);
-        })
-        .catch((err) => console.log(err));
+      // ApiPost("user/signUp", {
+      //   ...formikprops.values,
+      //   profileStatus: 3,
+      //   userType:1
+      // })
+      //   .then((res) => {
+      //     console.log(res);
+      //     changeStage(4);
+      //   })
+      //   .catch((err) => console.log(err));
+
+         nextStage()
     }
   };
   return (
