@@ -31,6 +31,7 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
     })
       .then((res) => {
         console.log(res);
+        alert("Artist Successfully Registered")
         navigate("/");
         toast.success(res.data.message);
 
